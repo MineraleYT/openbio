@@ -9,7 +9,6 @@ import {
   faTiktok,
   faTwitch
 } from '@fortawesome/free-brands-svg-icons';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { AnimatedBackground } from './components/AnimatedBackground';
 
 export default function Home() {
@@ -88,7 +87,7 @@ export default function Home() {
       </main>
 
       <footer className="relative z-10 py-4 text-center text-gray-400 text-sm">
-        Made with <FontAwesomeIcon icon={faHeart} className="text-red-500" /> by{" "}
+        Made with <span className="text-red-500">♥</span> by{" "}
         <a href="https://github.com/mineraleyt" className="hover:text-cyan-400 transition-colors" target="_blank" rel="noopener noreferrer">
           Minerale
         </a>
