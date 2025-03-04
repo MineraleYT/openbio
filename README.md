@@ -8,8 +8,6 @@ A modern, open-source bio link platform built with Next.js and TypeScript. Creat
 - 🔗 Social media integration
 - 📱 Responsive design
 - 🚀 Easy deployment
-- 🎯 SEO optimized
-- 🌐 Open Graph support
 
 ## 🔄 Fork This Project
 
