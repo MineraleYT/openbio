@@ -13,12 +13,12 @@ import { AnimatedBackground } from './components/AnimatedBackground';
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col" role="document">
       <AnimatedBackground />
       <main className="flex-1 flex items-center justify-center p-4 relative">
         <div className="max-w-2xl w-full relative z-10">
           <div className="text-center mb-8">
-            <div className="mb-6 relative w-32 h-32 mx-auto">
+            <div className="mb-6 relative w-32 h-32 mx-auto" role="img" aria-label="Profile picture">
               <Image
                 src="/logo.webp"
                 alt="Logo"

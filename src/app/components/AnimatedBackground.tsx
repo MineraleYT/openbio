@@ -120,9 +120,7 @@ export const AnimatedBackground = () => {
     <canvas
       ref={canvasRef}
       aria-hidden="true"
-      tabIndex={-1}
       role="presentation"
-      aria-label="Animated background"
       style={{ 
         position: 'fixed',
         top: 0,
