@@ -10,7 +10,7 @@ COPY postcss.config.mjs ./
 COPY eslint.config.mjs ./
 
 # Install dependencies
-RUN npm ci
+RUN npm install
 
 # Copy source code
 COPY src/ ./src
@@ -33,7 +33,7 @@ COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
 
 # Install only production dependencies
-RUN npm ci --only=production
+RUN npm install --omit=dev
 
 # Expose the port
 EXPOSE 3000
