@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  web:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: openbio
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    # Development volumes for hot-reloading (comment out in production)
+    volumes:
+      - ./src:/app/src
+      - ./public:/app/public
+    # Healthcheck to ensure the application is running
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
