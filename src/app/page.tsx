@@ -11,6 +11,11 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import { AnimatedBackground } from './components/AnimatedBackground';
 
+/**
+ * Renders the main homepage with a profile section, animated background, and social media links.
+ *
+ * Displays a centered profile image, name, and welcome message, followed by styled buttons linking to Minerale's social media profiles. Includes an animated background and a footer with a GitHub link.
+ */
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col" role="document">
