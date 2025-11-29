@@ -9,12 +9,17 @@ export const AnimatedBackground = () => {
     const canvas = canvasRef.current;
     if (!canvas) return false;
 
-    const { clientWidth } = document.documentElement;
-    const height = window.innerHeight * window.devicePixelRatio;
-    
-    if (canvas.width !== clientWidth) {
-      canvas.width = clientWidth;
+    const dpr = window.devicePixelRatio || 1;
+    const width = window.innerWidth * dpr;
+    const height = window.innerHeight * dpr;
+
+    if (canvas.width !== width || canvas.height !== height) {
+      canvas.width = width;
       canvas.height = height;
+
+      const ctx = canvas.getContext('2d');
+      if (ctx) ctx.scale(dpr, dpr);
+
       return true;
     }
     return false;
@@ -121,7 +126,7 @@ export const AnimatedBackground = () => {
       ref={canvasRef}
       aria-hidden="true"
       role="presentation"
-      style={{ 
+      style={{
         position: 'fixed',
         top: 0,
         left: 0,

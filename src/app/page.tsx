@@ -1,24 +1,20 @@
 'use client';
 
 import Image from 'next/image';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faYoutube,
-  faGithub,
-  faInstagram,
-  faTiktok,
-  faTwitch
-} from '@fortawesome/free-brands-svg-icons';
 import { AnimatedBackground } from './components/AnimatedBackground';
+import { SocialLink } from './components/SocialLink';
+
+import { socialLinks } from '../data/links';
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col" role="document">
+    <div className="min-h-screen flex flex-col">
       <AnimatedBackground />
+
       <main className="flex-1 flex items-center justify-center p-4 relative">
         <div className="max-w-2xl w-full relative z-10">
           <div className="text-center mb-8">
-            <div className="mb-6 relative w-32 h-32 mx-auto" role="img" aria-label="Profile picture">
+            <div className="mb-6 relative w-32 h-32 mx-auto">
               <Image
                 src="/logo.webp"
                 alt="Logo"
@@ -33,55 +29,15 @@ export default function Home() {
           </div>
 
           <div className="space-y-4">
-            <a
-              href="https://go.mineraleyt.com/youtube"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex flex-col items-center justify-center p-4 bg-gray-800/80 hover:bg-red-600 backdrop-blur-sm rounded-lg transform transition-all duration-300 hover:-translate-y-1 hover:shadow-lg text-white/90 hover:text-white border-2 border-cyan-500/50"
-            >
-              <FontAwesomeIcon icon={faYoutube} className="w-6 h-6 mb-2" />
-              <span className="text-lg font-medium">YouTube</span>
-            </a>
-
-            <a
-              href="https://go.mineraleyt.com/github"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex flex-col items-center justify-center p-4 bg-gray-800/80 hover:bg-gray-900 backdrop-blur-sm rounded-lg transform transition-all duration-300 hover:-translate-y-1 hover:shadow-lg text-white/90 hover:text-white border-2 border-cyan-500/50"
-            >
-              <FontAwesomeIcon icon={faGithub} className="w-6 h-6 mb-2" />
-              <span className="text-lg font-medium">GitHub</span>
-            </a>
-
-            <a
-              href="https://go.mineraleyt.com/instagram"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex flex-col items-center justify-center p-4 bg-gray-800/80 hover:bg-gradient-to-r hover:from-purple-600 hover:to-pink-600 backdrop-blur-sm rounded-lg transform transition-all duration-300 hover:-translate-y-1 hover:shadow-lg text-white/90 hover:text-white border-2 border-cyan-500/50"
-            >
-              <FontAwesomeIcon icon={faInstagram} className="w-6 h-6 mb-2" />
-              <span className="text-lg font-medium">Instagram</span>
-            </a>
-
-            <a
-              href="https://go.mineraleyt.com/tiktok"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex flex-col items-center justify-center p-4 bg-gray-800/80 hover:bg-black backdrop-blur-sm rounded-lg transform transition-all duration-300 hover:-translate-y-1 hover:shadow-lg text-white/90 hover:text-white border-2 border-cyan-500/50"
-            >
-              <FontAwesomeIcon icon={faTiktok} className="w-6 h-6 mb-2" />
-              <span className="text-lg font-medium">TikTok</span>
-            </a>
-
-            <a
-              href="https://go.mineraleyt.com/twitch"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex flex-col items-center justify-center p-4 bg-gray-800/80 hover:bg-purple-700 backdrop-blur-sm rounded-lg transform transition-all duration-300 hover:-translate-y-1 hover:shadow-lg text-white/90 hover:text-white border-2 border-cyan-500/50"
-            >
-              <FontAwesomeIcon icon={faTwitch} className="w-6 h-6 mb-2" />
-              <span className="text-lg font-medium">Twitch</span>
-            </a>
+            {socialLinks.map((link) => (
+              <SocialLink
+                key={link.id}
+                href={link.href}
+                icon={link.icon}
+                label={link.label}
+                colorClass={link.colorClass}
+              />
+            ))}
           </div>
         </div>
       </main>

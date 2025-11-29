@@ -10,10 +10,7 @@ services:
       - "3000:3000"
     environment:
       - NODE_ENV=production
-    # Development volumes for hot-reloading (comment out in production)
-    volumes:
-      - ./src:/app/src
-      - ./public:/app/public
+
     # Healthcheck to ensure the application is running
     healthcheck:
       test: ["CMD", "wget", "--spider", "http://localhost:3000"]
